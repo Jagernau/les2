@@ -16,9 +16,13 @@ def get_candidate(candidate_id):
 
 def get_candidates_by_name(candidate_name):
     """возвращает кандидатов по имени"""
-    for i in names:
-        if i["name"] == str(candidate_name).capitalize:
-            return i
+    nam = []
+    for i in names:        
+        if str(candidate_name).capitalize() in i["name"].split(" "):
+            nam.append(i)
+        if str(candidate_name) in i["name"].split(" "):
+            nam.append(i)
+    return nam
 
 def get_candidates_by_skill(skill_name):
     """возвращает кандидатов по навыку"""

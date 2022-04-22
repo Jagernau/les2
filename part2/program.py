@@ -15,4 +15,17 @@ def candidat(x):
     candidat = fu.get_candidate(x)
     return render_template("card.html", data=candidat)
 
+@app.route('/search/<candidate_name>')
+def name(candidate_name):
+    """страница кондидатов по имени"""
+    names = fu.get_candidates_by_name(candidate_name)
+    count = len(names)
+    return render_template("search.html", nam=names, cou=count )
+@app.route('/skill/<skill_name>')
+def skill(skill_name):
+    skill = fu.get_candidates_by_skill(skill_name)
+    count = len(skill)
+    enter = skill_name
+    return render_template("skill.html", ski=skill, cou=count, ent=enter)
+
 app.run()
