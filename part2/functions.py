@@ -18,9 +18,7 @@ def get_candidates_by_name(candidate_name):
     """возвращает кандидатов по имени"""
     nam = []
     for i in names:        
-        if str(candidate_name).capitalize() in i["name"].split(" "):
-            nam.append(i)
-        if str(candidate_name) in i["name"].split(" "):
+        if str(candidate_name).upper() in i["name"].upper().split(" "):
             nam.append(i)
     return nam
 
@@ -28,9 +26,7 @@ def get_candidates_by_skill(skill_name):
     """возвращает кандидатов по навыку"""
     cand = []
     for i in names:
-        if str(skill_name).capitalize() in i["skills"].split(", "):
-            cand.append(i)
-        if str(skill_name) in i["skills"].split(", "):
+        if str(skill_name).upper() in i["skills"].upper().split(", "):
             cand.append(i)
     return cand
 
